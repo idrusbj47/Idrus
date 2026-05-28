@@ -5,24 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AD/ART Lingkungan RT</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Memanggil library PDF.js via CDN agar bisa membaca PDF secara langsung -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
     <style>
         body {
-            background-color: #F7FAFC;
-            color: #2D3748;
+            background-color: #1A202C;
+            color: #E2E8F0;
             font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
         }
         .header {
-            background-color: #1A202C;
-            color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 15px;
+            background-color: #2D3748;
+            border-bottom: 3px solid #319795;
         }
         .header h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 22px;
             color: #319795;
         }
         .header p {
@@ -31,55 +34,52 @@
             font-size: 14px;
         }
         .container {
-            max-width: 700px;
+            max-width: 800px;
             margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 0 15px;
+            box-sizing: border-box;
         }
-        .download-box {
+        
+        /* Wadah untuk menampilkan halaman-halaman PDF */
+        #pdf-viewer {
+            width: 100%;
+            background: #2D3748;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+        canvas {
+            display: block;
+            width: 100% !important; /* Memaksa PDF pas dengan lebar layar HP */
+            height: auto !important;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            background: white;
+        }
+        
+        /* Loading Status */
+        #loading {
             text-align: center;
-            background: #E6FFFA;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-            border: 1px solid #B2F5EA;
+            padding: 40px;
+            color: #319795;
+            font-weight: bold;
+        }
+        
+        .actions {
+            text-align: center;
+            margin: 30px 0;
         }
         .download-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #319795;
-            color: white;
+            color: #1A202C;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        
-        /* Gaya Penulisan Dokumen */
-        .dokumen h2 {
-            text-align: center;
-            color: #2C5282;
-            border-bottom: 2px solid #E2E8F0;
-            padding-bottom: 8px;
-            margin-top: 30px;
-            font-size: 18px;
-        }
-        .dokumen h3 {
-            color: #2D3748;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        .dokumen p, .dokumen li {
+            border-radius: 6px;
             font-size: 15px;
-            text-align: justify;
-        }
-        .dokumen ol {
-            padding-left: 20px;
-        }
-        .dokumen li {
-            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -87,42 +87,65 @@
 
     <div class="header">
         <h1>AD/ART LINGKUNGAN RT</h1>
-        <p>Silakan baca dokumen di bawah atau unduh file resminya</p>
+        <p>Dokumen Resmi di Lingkungan RT</p>
     </div>
 
     <div class="container">
+        <!-- Status Loading saat dokumen sedang dibaca oleh sistem -->
+        <div id="loading">Sedang memuat dokumen... Mohon tunggu.</div>
         
-        <!-- Tombol Unduh Jika Warga Ingin Simpan File Asli -->
-        <div class="download-box">
-            <p style="margin: 0 0 10px 0; font-size: 14px; color: #234E52;">Butuh dokumen fisik/cetak?</p>
-            <a href="ad-art.pdf" class="download-btn" download>Unduh PDF Salinan Resmi</a>
-        </div>
+        <!-- Di sinilah semua halaman PDF akan dimunculkan otomatis ke bawah -->
+        <div id="pdf-viewer" style="display: none;"></div>
 
-        <!-- ISI AD/ART DI SINI (Silakan ganti teks di bawah sesuai dokumen RT Anda) -->
-        <div class="dokumen">
-            
-            <h2>BAB I<br>NAMA, WAKTU DAN KEDUDUKAN</h2>
-            
-            <h3>Pasal 1: Nama</h3>
-            <p>Organisasi ini bernama Rukun Tetangga (RT) 05 RW 10, Kelurahan Bahagia, Kecamatan Makmur.</p>
-            
-            <h3>Pasal 2: Waktu Kedudukan</h3>
-            <p>RT 05 didirikan pada tanggal 1 Januari 2020 untuk jangka waktu yang tidak ditentukan dan berkedudukan di wilayah hukum NKRI.</p>
-
-            <h2>BAB II<br>MAKSUD DAN TUJUAN</h2>
-            
-            <h3>Pasal 3: Tujuan</h3>
-            <p>Maksud dan tujuan dibentuknya AD/ART ini adalah untuk:</p>
-            <ol>
-                <li>Membina kerukunan, kebersamaan, dan kekeluargaan antar warga.</li>
-                <li>Menjaga keamanan, ketertiban, dan kebersihan lingkungan sekitar.</li>
-                <li>Mengkoordinasikan aspirasi warga dengan pihak kelurahan/desa.</li>
-            </ol>
-            
-            <!-- Anda tinggal menambah BAB dan Pasal berikutnya dengan pola yang sama -->
-
+        <div class="actions">
+            <a href="ad-art.pdf" class="download-btn" download>Unduh PDF Asli</a>
         </div>
     </div>
+
+    <script>
+        // Tentukan nama file PDF Anda di sini
+        const url = 'ad-art.pdf';
+
+        // Konfigurasi awal PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        // Membaca file PDF secara langsung
+        pdfjsLib.getDocument(url).promise.then(pdf => {
+            const viewer = document.getElementById('pdf-viewer');
+            const loading = document.getElementById('loading');
+            
+            // Sembunyikan loading, tampilkan container viewer
+            loading.style.display = 'none';
+            viewer.style.display = 'block';
+
+            // Loop untuk membaca seluruh halaman dari nomor 1 sampai halaman terakhir
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    // Set skala rendering (2 atau 1.5 agar tulisan tetap tajam saat di-zoom)
+                    const viewport = page.getViewport({ scale: 2 });
+                    
+                    // Membuat elemen canvas pembaca untuk tiap halaman
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    viewer.appendChild(canvas);
+
+                    // Proses penggambaran halaman PDF ke layar web
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext);
+                });
+            }
+        }).catch(err => {
+            document.getElementById('loading').innerHTML = 
+                "<span style='color: #E53E3E;'>Gagal memuat dokumen. Pastikan nama file Anda sudah benar 'ad-art.pdf' dan berada di folder yang sama.</span>";
+            console.error('Error:', err);
+        });
+    </script>
 
 </body>
 </html>
