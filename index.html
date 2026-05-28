@@ -3,90 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dokumen AD/ART Warga</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>AD/ART Lingkungan RT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #1A202C;
-            color: #E2E8F0;
-            font-family: 'Quattrocento Sans', sans-serif;
+            background-color: #F7FAFC;
+            color: #2D3748;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 0;
+            line-height: 1.6;
         }
-        header {
+        .header {
+            background-color: #1A202C;
+            color: white;
             text-align: center;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 800px;
+            padding: 30px 20px;
         }
-        h1 {
-            color: #38B2AC;
-            margin-bottom: 5px;
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #319795;
         }
-        p.subtitle {
+        .header p {
+            margin: 5px 0 0 0;
             color: #A0AEC0;
-            margin-top: 0;
+            font-size: 14px;
         }
-        .document-container {
-            width: 100%;
-            max-width: 800px;
-            background: #2D3748;
-            padding: 15px;
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        iframe {
-            width: 100%;
-            height: 75vh; /* Mengisi 75% tinggi layar */
-            border: none;
-            border-radius: 4px;
-            background-color: #ffffff;
-        }
-        .actions {
+        .download-box {
             text-align: center;
-            margin-top: 20px;
+            background: #E6FFFA;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            border: 1px solid #B2F5EA;
         }
         .download-btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #38B2AC;
-            color: #1A202C;
+            background-color: #319795;
+            color: white;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #288f8a;
+            font-size: 14px;
         }
         
-        /* Penyesuaian untuk layar HP kecil */
-        @media (max-width: 600px) {
-            iframe {
-                height: 60vh; 
-            }
+        /* Gaya Penulisan Dokumen */
+        .dokumen h2 {
+            text-align: center;
+            color: #2C5282;
+            border-bottom: 2px solid #E2E8F0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .dokumen h3 {
+            color: #2D3748;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .dokumen p, .dokumen li {
+            font-size: 15px;
+            text-align: justify;
+        }
+        .dokumen ol {
+            padding-left: 20px;
+        }
+        .dokumen li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>AD/ART Lingkungan</h1>
-        <p class="subtitle">Anggaran Dasar dan Anggaran Rumah Tangga</p>
-    </header>
-
-    <div class="document-container">
-        <iframe src="ad-art.pdf" title="Dokumen AD ART">
-            <p>Browser Anda tidak mendukung tampilan PDF langsung.</p>
-        </iframe>
+    <div class="header">
+        <h1>AD/ART LINGKUNGAN RT</h1>
+        <p>Silakan baca dokumen di bawah atau unduh file resminya</p>
     </div>
 
-    <div class="actions">
-        <a href="ad-art.pdf" class="download-btn" download>Unduh Dokumen PDF</a>
+    <div class="container">
+        
+        <!-- Tombol Unduh Jika Warga Ingin Simpan File Asli -->
+        <div class="download-box">
+            <p style="margin: 0 0 10px 0; font-size: 14px; color: #234E52;">Butuh dokumen fisik/cetak?</p>
+            <a href="ad-art.pdf" class="download-btn" download>Unduh PDF Salinan Resmi</a>
+        </div>
+
+        <!-- ISI AD/ART DI SINI (Silakan ganti teks di bawah sesuai dokumen RT Anda) -->
+        <div class="dokumen">
+            
+            <h2>BAB I<br>NAMA, WAKTU DAN KEDUDUKAN</h2>
+            
+            <h3>Pasal 1: Nama</h3>
+            <p>Organisasi ini bernama Rukun Tetangga (RT) 05 RW 10, Kelurahan Bahagia, Kecamatan Makmur.</p>
+            
+            <h3>Pasal 2: Waktu Kedudukan</h3>
+            <p>RT 05 didirikan pada tanggal 1 Januari 2020 untuk jangka waktu yang tidak ditentukan dan berkedudukan di wilayah hukum NKRI.</p>
+
+            <h2>BAB II<br>MAKSUD DAN TUJUAN</h2>
+            
+            <h3>Pasal 3: Tujuan</h3>
+            <p>Maksud dan tujuan dibentuknya AD/ART ini adalah untuk:</p>
+            <ol>
+                <li>Membina kerukunan, kebersamaan, dan kekeluargaan antar warga.</li>
+                <li>Menjaga keamanan, ketertiban, dan kebersihan lingkungan sekitar.</li>
+                <li>Mengkoordinasikan aspirasi warga dengan pihak kelurahan/desa.</li>
+            </ol>
+            
+            <!-- Anda tinggal menambah BAB dan Pasal berikutnya dengan pola yang sama -->
+
+        </div>
     </div>
 
 </body>
